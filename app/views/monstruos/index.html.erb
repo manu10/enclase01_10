@@ -1,0 +1,21 @@
+<!------------------------------------------------------ 
+Acá va a ir el listado de monstruos usando los tags  
+<ul> y <li>.
+Debe tener un título y mostrar el nombre (en negrita) y
+la descripción.
+------------------------------------------------------>
+
+<table class="table">
+<% todos = Monstruo.all %>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripcion</th>
+  </tr>
+  <% todos.each do |monstruo| %>
+    <tr>
+      <td> <%=link_to monstruo.nombre,monstruo %> <% if monstruo.tweets.count>1 %> <span class="star"> CritterStar! </span> <% end %> </td>
+      <td> <%=monstruo.descripcion %> </td>
+      <td><button type="button" class="btn btn-danger">Eliminar</button></td>
+    </tr>
+  <% end %>
+</table>
